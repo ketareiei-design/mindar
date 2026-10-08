@@ -1,38 +1,109 @@
-
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.5.4/dist/aframe-extras.min.js"></script>
 
 </head>
 
 <body>
 
 <a-scene
-    mindar-image="imageTargetSrc: ./targets.mind;"
-    vr-mode-ui="enabled: false"
-    device-orientation-permission-ui="enabled: false">
+  mindar-image="
+    imageTargetSrc: https://ketareiei-design.github.io/mindar/targets.mind;
+    maxTrack: 3;
+  "
+  vr-mode-ui="enabled: false"
+  device-orientation-permission-ui="enabled: false">
 
-    <a-camera
-        position="0 0 0"
-        look-controls="enabled: false">
-    </a-camera>
+  <!-- ========================= -->
+  <!-- 3D MODELS -->
+  <!-- ========================= -->
 
-    <!-- Image Target -->
-    <a-entity mindar-image-target="targetIndex: 0">
+  <a-assets>
 
-        <!-- กล่องสีแดงจะโผล่บนรูป -->
-        <a-box
-            color="red"
-            position="0 0 0.1"
-            scale="0.3 0.3 0.3">
-        </a-box>
+    <!-- Model 1 -->
+    <a-asset-item
+      id="model0"
+      src="https://ketareiei-design.github.io/mindar/after_work.glb">
+    </a-asset-item>
 
-    </a-entity>
+    <!-- Model 2 -->
+    <a-asset-item
+      id="model1"
+      src="https://ketareiei-design.github.io/mindar/cable_grace_-_halloween_2014.glb">
+    </a-asset-item>
+
+    <!-- Model 3 -->
+    <a-asset-item
+      id="model2"
+      src="https://ketareiei-design.github.io/mindar/chicken_dance.glb">
+    </a-asset-item>
+
+  </a-assets>
+
+
+  <!-- ========================= -->
+  <!-- TARGET 1 -->
+  <!-- ========================= -->
+
+  <a-entity mindar-image-target="targetIndex: 0">
+
+    <a-gltf-model
+      src="#model0"
+      animation-mixer
+      position="0 0 0"
+      rotation="90 0 0"
+      scale="0.5 0.5 0.5">
+    </a-gltf-model>
+
+  </a-entity>
+
+
+  <!-- ========================= -->
+  <!-- TARGET 2 -->
+  <!-- ========================= -->
+
+  <a-entity mindar-image-target="targetIndex: 1">
+
+    <a-gltf-model
+      src="#model1"
+      animation-mixer
+      position="0 0 0"
+      rotation="90 0 0"
+      scale="0.5 0.5 0.5">
+    </a-gltf-model>
+
+  </a-entity>
+
+
+  <!-- ========================= -->
+  <!-- TARGET 3 -->
+  <!-- ========================= -->
+
+  <a-entity mindar-image-target="targetIndex: 2">
+
+    <a-gltf-model
+      src="#model2"
+      animation-mixer
+      position="0 0 0"
+      rotation="90 0 0"
+      scale="0.5 0.5 0.5">
+    </a-gltf-model>
+
+  </a-entity>
+
+
+  <!-- CAMERA -->
+
+  <a-camera
+    position="0 0 0"
+    look-controls="enabled: false">
+  </a-camera>
 
 </a-scene>
 
